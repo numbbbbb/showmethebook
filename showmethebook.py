@@ -19,6 +19,5 @@ for i in range(1, pagecount / 2 + 1):
 	content += wd.execute_script("var content = '';$('#book_page_%s text').each(function(){content += $(this).text()});return content;" % str(i * 2 + 1))
 	wd.execute_script("$('.j-pagedown').trigger('click')")
 wd.close()
-print content
 with open('book', 'w') as f:
 	f.write(content.encode('utf-8'))
